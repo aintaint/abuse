@@ -1,6 +1,28 @@
 Abuse README
 ============
 
+This wasm build is running but not yet in a playable state.
+
+You can run Abuse under dosbox on the web.
+
+
+This fork is in preparation to check in some incremental changes to the SDL2
+port, in order to hack on this and retarget at Emscripten builds.
+
+Emscripten provides SDL2 support but this is all obviously the wrong way to
+target a Common Lisp game engine at the web, basically from top to bottom
+wrong. So the intention is incrementally back out all of the changes until 
+it's spiritually correct. 
+
+This is an interesting game engine.
+
+My aim is to retarget and refactor the engine. Be careful about pulling 
+changes back, I'm not doing maintenance, primarily. I'm primarily making
+breaking changes.
+
+
+----
+
 This is a fork of the original Abuse SDL port from <http://abuse.zoy.org/>. It
 switches the build system to CMake to make crossplatform building easier, and
 ports the original SDL version to SDL2. This version also removes some of the
