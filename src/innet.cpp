@@ -11,17 +11,20 @@
 #if defined HAVE_CONFIG_H
 #   include "config.h"
 #endif
+#ifdef HAVE_UNISTD_H
+# include <unistd.h>
+#endif
 
 #include <stdio.h>
 
 #include "common.h"
 
 #include "demo.h"
-#include "specs.h"
+#include "imlib/specs.h"
 #include "level.h"
 #include "game.h"
 #include "dev.h"
-#include "timing.h"
+#include "imlib/timing.h"
 #include "netface.h"
 
 #if HAVE_NETWORK
@@ -31,7 +34,7 @@
 #include "net/ghandler.h"
 #include "net/gserver.h"
 #include "net/gclient.h"
-#include "dprint.h"
+#include "imlib/dprint.h"
 #include "netcfg.h"
 
 /*

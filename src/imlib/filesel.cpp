@@ -19,7 +19,7 @@
 # include <direct.h>
 #endif
 
-#include "common.h"
+#include "../common.h"
 
 #include "filesel.h"
 #include "input.h"

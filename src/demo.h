@@ -11,8 +11,8 @@
 #ifndef __DEMO_HPP_
 #define __DEMO_HPP_
 
-#include "lisp.h"
-#include "jwindow.h"
+#include "lisp/lisp.h"
+#include "imlib/jwindow.h"
 
 class demo_manager
 {

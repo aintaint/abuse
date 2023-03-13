@@ -38,8 +38,8 @@
 #include <signal.h>
 #include "SDL.h"
 
-#include "specs.h"
-#include "keys.h"
+#include "../imlib/specs.h"
+#include "../imlib/keys.h"
 #include "setup.h"
 #include "errorui.h"
 

@@ -19,9 +19,9 @@
 #include "sdlport/joy.h"
 #include "game.h"
 
-#include "keys.h"
-#include "lisp.h"
-#include "jwindow.h"
+#include "imlib/keys.h"
+#include "lisp/lisp.h"
+#include "imlib/jwindow.h"
 #include "configuration.h"
 
 extern int get_key_binding(char const *dir, int i);

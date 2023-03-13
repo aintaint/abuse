@@ -16,19 +16,19 @@
 
 #include "common.h"
 
-#include "timing.h"
+#include "imlib/timing.h"
 #include "loader2.h"
 #include "chars.h"
-#include "specs.h"
-#include "lisp.h"
-#include "jrand.h"
+#include "imlib/specs.h"
+#include "lisp/lisp.h"
+#include "imlib/jrand.h"
 #include "menu.h"
 #include "dev.h"
 #include "director.h"
 
 #include "dev.h"
 #include "light.h"
-#include "dprint.h"
+#include "imlib/dprint.h"
 #include "particle.h"
 #include "clisp.h"
 #include "compiled.h"
@@ -295,27 +295,8 @@ void load_data(int argc, char **argv)
     pal=NULL;
     color_table=NULL;
 
-# if 0
-    int should_save_sd_cache = 0;
-
-    char *cachepath;
-    cachepath = (char *)malloc( strlen( get_save_filename_prefix() ) + 12 + 1 );
-    sprintf( cachepath, "%ssd_cache.tmp", get_save_filename_prefix() );
-
-    bFILE *load = open_file( cachepath, "rb" );
-    if( !load->open_failure() )
-    {
-        sd_cache.load( load );
-    }
-    else
-    {
-        should_save_sd_cache = 1;
-    }
-    delete load;
-#endif
-
   // don't let them specify a startup file we are connect elsewhere
-  if (!net_start())
+/*  if (!net_start())
   {
     for (int i=1; i<argc; i++)
     {
@@ -335,26 +316,34 @@ void load_data(int argc, char **argv)
   {
     dprintf("Unable to get remote lsf from %s\n",net_server);
     exit(0);
-  }
+  }*/
+
   char prog[100];
   char const *cs;
+
 
   c_mouse1=cache.reg("art/dev.spe","c_mouse1",SPEC_IMAGE,0);
   c_mouse2=cache.reg("art/dev.spe","c_mouse2",SPEC_IMAGE,0);
   c_normal=cache.reg("art/dev.spe","c_normal",SPEC_IMAGE,0);
   c_target=cache.reg("art/dev.spe","c_target",SPEC_IMAGE,0);
 
-
+  std::string progs = "(load \"abuse.lsp\")\n";
   snprintf(prog, sizeof(prog), "(load \"%s\")\n", lsf);
+
+  std::cout << "prog: " << cs << std::endl;
 
   cs=prog;
   if (!LObject::Compile(cs)->Eval())
   {
-    printf("unable to open file '%s'\n",lsf);
+    std::cout << "unable to open file " << prog << std::endl;
+    //printf("unable to open file '%s'\n",);
     exit(0);
   }
+  std::cout << "!LObject::Compile(cs)->Eval()" << std::endl;
   compiled_init();
+  std::cout << "compiled_init()" << std::endl;
   LSpace::Tmp.Clear();
+  std::cout << "LSpace::Tmp.Clear()" << std::endl;
 
   dprintf("Engine : Registering base graphics\n");
   for (int z=0; z<=11; z++)
@@ -507,19 +496,4 @@ char *load_script(char *name)
   delete fp;
   return s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

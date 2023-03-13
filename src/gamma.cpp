@@ -18,12 +18,12 @@
 
 #include "game.h"
 
-#include "jwindow.h"
-#include "lisp.h"
-#include "scroller.h"
+#include "imlib/jwindow.h"
+#include "lisp/lisp.h"
+#include "imlib/scroller.h"
 #include "id.h"
 #include "cache.h"
-#include "dprint.h"
+#include "imlib/dprint.h"
 #include "loader2.h"
 
 extern int dev_ok;

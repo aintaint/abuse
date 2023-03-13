@@ -16,8 +16,8 @@
 
 #include "director.h"
 #include "game.h"
-#include "lisp.h"
-#include "fonts.h"
+#include "lisp/lisp.h"
+#include "imlib/fonts.h"
 
 director scene_director;
 

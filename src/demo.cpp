@@ -17,12 +17,12 @@
 #include "game.h"
 
 #include "demo.h"
-#include "specs.h"
-#include "jwindow.h"
-#include "dprint.h"
+#include "imlib/specs.h"
+#include "imlib/jwindow.h"
+#include "imlib/dprint.h"
 #include "dev.h"
-#include "jrand.h"
-#include "lisp.h"
+#include "imlib/jrand.h"
+#include "lisp/lisp.h"
 #include "clisp.h"
 #include "netface.h"
 

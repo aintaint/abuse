@@ -251,7 +251,7 @@ private:
 static inline LObject *&CAR(void *x) { return ((LList *)x)->m_car; }
 static inline LObject *&CDR(void *x) { return ((LList *)x)->m_cdr; }
 
-#ifdef __GNUC__
+//#ifdef __GNUC__
 /*
  * C++ spec says "this" is always NON-NULL, recent versions of gcc will warn
  * about this and optimizes the "if (this)" we use in some places away:
@@ -259,17 +259,17 @@ static inline LObject *&CDR(void *x) { return ((LList *)x)->m_cdr; }
  * We rely on "if (this)" checks in several places and refactoring this is
  * non trivial. So we use this little helper marked with
  * __attribute__((optimize("O0"))) to workaround this.
- */
+
 static inline bool __attribute__((optimize("O0"))) ptr_is_null(void *ptr)
 {
     return ptr == NULL;
 }
-#else
+#else */
 static inline bool ptr_is_null(void *ptr)
 {
     return ptr == NULL;
 }
-#endif
+//#endif
 
 static inline ltype item_type(void *x) { if (!ptr_is_null(x)) return *(ltype *)x; return L_CONS_CELL; }
 

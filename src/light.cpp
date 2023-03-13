@@ -17,15 +17,24 @@
 #include "common.h"
 
 #include "light.h"
-#include "image.h"
-#include "video.h"
-#include "palette.h"
-#include "timing.h"
-#include "specs.h"
-#include "dprint.h"
-#include "filter.h"
-#include "status.h"
+#include "imlib/image.h"
+#include "imlib/video.h"
+#include "imlib/palette.h"
+#include "imlib/timing.h"
+#include "imlib/specs.h"
+#include "imlib/dprint.h"
+#include "imlib/filter.h"
+#include "imlib/status.h"
 #include "dev.h"
+
+
+// register storage class has been removed from C++17
+#if (__cplusplus - 0) >= 201703L
+  #define __REGISTER
+#else
+  #define __REGISTER  register
+#endif
+
 
 light_source *first_light_source=NULL;
 uint8_t *white_light,*white_light_initial,*green_light,*trans_table;
@@ -542,7 +551,7 @@ int calc_light_value(light_patch *which, int32_t x, int32_t y)
 {
   int lv=0;
   int t=which->total;
-  for (register int i=t-1; i>=0; i--)
+  for (__REGISTER int i=t-1; i>=0; i--)
   {
     light_source *fn=which->lights[i];
     if (fn->type==9)
@@ -613,9 +622,9 @@ void delete_patch_list(light_patch *first)
 
 inline void MAP_PUT(uint8_t * screen_addr, uint8_t * remap, int w)
 {
-  register int cx=w;
-  register uint8_t * di=screen_addr;
-  register uint8_t * si=remap;
+  __REGISTER int cx=w;
+  __REGISTER uint8_t * di=screen_addr;
+  __REGISTER uint8_t * si=remap;
   while (cx--)
   {
     uint8_t x=*((uint8_t *)si+*((uint8_t *)di));
@@ -640,14 +649,14 @@ inline int calc_light_value(light_patch *lp,   // light patch to look at
                 int32_t sy)
 {
   int lv=min_light_level,r2,light_count;
-  register int dx,dy;           // x and y distances
+  __REGISTER int dx,dy;           // x and y distances
 
   light_source **lon_p=lp->lights;
 
   for (light_count=lp->total; light_count>0; light_count--)
   {
     light_source *fn=*lon_p;
-    register int32_t *dt=&(*lon_p)->type;
+    __REGISTER int32_t *dt=&(*lon_p)->type;
                                      // note we are accessing structure members by bypassing the compiler
                                      // for speed, this may not work on all compilers, but don't
                                      // see why it shouldn't..  all members are int32_t

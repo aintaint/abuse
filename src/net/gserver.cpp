@@ -22,17 +22,17 @@
 #include <sys/types.h>
 #include <string.h>
 
-#include "common.h"
+#include "../common.h"
 
 #include "gserver.h"
-#include "netface.h"
-#include "timing.h"
-#include "netcfg.h"
-#include "id.h"
-#include "jwindow.h"
-#include "input.h"
-#include "dev.h"
-#include "game.h"
+#include "../netface.h"
+#include "../imlib/timing.h"
+#include "../netcfg.h"
+#include "../id.h"
+#include "../imlib/jwindow.h"
+#include "../imlib/input.h"
+#include "../dev.h"
+#include "../game.h"
 
 extern base_memory_struct *base;
 extern net_socket *comm_sock,*game_sock;
