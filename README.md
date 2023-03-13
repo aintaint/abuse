@@ -51,6 +51,8 @@ Emscripten also provides zlib, but there's no structured archive format
 in the ports library. (Maybe some innovation with serializing a file system
 to a browser database format is better than tar, but I found a good tar)
 
+https://github.com/bucanero/libtinytar
+
 The browser provides a 32bit virtual machine. Contemporary to this code,
 but a small implementation detail that may be breaking.
 
