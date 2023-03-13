@@ -78,13 +78,12 @@ probably also a headache to rewrite in-situ.
 
 Managing threads in Emscripten is challenging enough, but the interface to
 the browser's js runtime makes this sort of thing seem appropriate as a
-replacement:
-https://github.com/jcubic/lips
+replacement: https://github.com/jcubic/lips
 
 I'm curious about whether another interpreter could be dropped in as a
-replacement, but this is mostly to understand and simplify the C interface
-between the game engine and the interpreter. CMU Common Lisp/Steel Bank CL
-are also in the public domain.
+replacement for the desktop runtime, but this is mostly to understand and
+simplify the C interface between the game engine and the interpreter.
+CMU Common Lisp/Steel Bank CL are also in the public domain.
 
 The idea of a refactor in the tree also suggests intentions of a substanial
 amount of C++ code replaced with lisp.
