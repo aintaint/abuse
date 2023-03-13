@@ -30,11 +30,11 @@ https://emscripten.org/
 
 After installing the emsdk, it's nearly as simple as:
 
-mkdir embuild
-cd embuild
-source [path to emsdk shell script]
-emcmake cmake ..
-emmake make
+    mkdir embuild
+    cd embuild
+    source [path to emsdk shell script]
+    emcmake cmake ..
+    emmake make
 
 clang didn't exist when this code was written, and the best of it uses a
 very old style of C++. Compiling to wasm from C++ and SDL in order to run
