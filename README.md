@@ -1,9 +1,15 @@
 README
 ============
 
-This wasm build is running but not yet in a playable state.
+You can play Crack Dot Com's Abuse under dosbox in your browser:
 
-You can run Abuse under dosbox on the web.
+https://www.myabandonware.com/game/abuse-1ne
+
+I play differently.
+
+----
+
+This wasm build is running but not yet in a playable state.
 
 
 This fork is in preparation to check in some incremental changes to the SDL2
@@ -41,6 +47,8 @@ very old style of C++. Compiling to wasm from C++ and SDL in order to run
 this on a modern interpreter that's, almost, a scheme dialect with a display
 system, is pretty perverse. This seems like an avenue to explore some
 alternative approaches.
+
+----
 
 Emscripten provides some mechanisms for file system access and MEMFS isn't
 quite adequate for the entire library of game assets. The Abuse runtime
