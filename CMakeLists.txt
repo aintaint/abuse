@@ -7,6 +7,9 @@ set(abuse_VERSION_MINOR 9)
 set(abuse_VERSION_PATCH 1)
 set(abuse_VERSION_TWEAK 0)
 
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+
 # Detect the platform, as there's quite a bit of platform variation
 
 if (WIN32)
@@ -18,6 +21,17 @@ if (VCPKG_TARGET_TRIPLET)
     # If using vcpkg, don't specify versions, they're in the manifest
     find_package(SDL2 CONFIG REQUIRED)
     find_package(SDL2_mixer CONFIG REQUIRED)
+
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
+
+    set(USE_FLAGS "-s USE_SDL=2 -s USE_SDL_MIXER=2 ")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${USE_FLAGS}")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${USE_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${USE_FLAGS}")
+    set(CMAKE_EXECUTABLE_SUFFIX .html)
+
+    include_directories(${CMAKE_SOURCE_DIR}/include ${SDL2_INCLUDE_DIRS})
+
 else()
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
     find_package(SDL2 2.0.0 REQUIRED)
