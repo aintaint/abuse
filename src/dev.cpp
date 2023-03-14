@@ -2011,9 +2011,9 @@ void dev_controll::handle_event(Event &ev)
     {
       if (!mess_win)
       {
-        mess_win=file_dialog(symbol_str("level_name"),current_level ? current_level->name() : "",
+/*        mess_win=file_dialog(symbol_str("level_name"),current_level ? current_level->name() : "",
                  ID_LEVEL_LOAD_OK,symbol_str("ok_button"),ID_CANCEL,symbol_str("cancel_button"),
-                 symbol_str("FILENAME"),ID_MESS_STR1);
+                 symbol_str("FILENAME"),ID_MESS_STR1);*/
         wm->grab_focus(mess_win);
       }
     } break;
@@ -2047,10 +2047,10 @@ void dev_controll::handle_event(Event &ev)
     {
       if (!mess_win)
       {
-        mess_win=file_dialog(symbol_str("saveas_name"),current_level ? current_level->name() : "untitled.spe",
+/*        mess_win=file_dialog(symbol_str("saveas_name"),current_level ? current_level->name() : "untitled.spe",
                    ID_LEVEL_SAVEAS_OK,symbol_str("ok_button"),
                  ID_CANCEL,symbol_str("cancel_button"),
-                 symbol_str("FILENAME"),ID_MESS_STR1);
+                 symbol_str("FILENAME"),ID_MESS_STR1);*/
         wm->grab_focus(mess_win);
       }
     } break;

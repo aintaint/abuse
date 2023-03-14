@@ -32,21 +32,28 @@ First steps involved testing the cmake build system and getting the project
 to compile as-is, and it was convenient that SDL is provided as part of the
 Emscripten ports package, and that the emsdk provides a wrapper for cmake.
 
-https://emscripten.org/
+https://emscripten.org/docs/getting_started/downloads.html
+
 
 After installing the emsdk, it's nearly as simple as:
 
-    mkdir embuild
-    cd embuild
-    source [path to emsdk shell script]
+    cd abuse/embuild
+    source ../../emsdk/emsdk_env.sh
     emcmake cmake ..
     emmake make
 
+Errors about missing symbols, you may need to explicitly install port libraries
+with a library switch before using emcmake:
+
+    do-it-for-me
+
+    em++ -c ../src/ability.cpp -o obj/ability.o -s USE_SDL=2
+
 clang didn't exist when this code was written, and the best of it uses a
 very old style of C++. Compiling to wasm from C++ and SDL in order to run
-this on a modern interpreter that's, almost, a scheme dialect with a display
-system, is pretty perverse. This seems like an avenue to explore some
-alternative approaches.
+this on a modern interpreter (web browser) that's, almost, just a scheme
+dialect with a display system, is pretty perverse. This seems like an avenue
+to explore some alternative approaches.
 
 ----
 
