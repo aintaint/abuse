@@ -1,6 +1,0 @@
-# Ignore macOS junk
-.DS_Store
-
-# Ignore various backup files
-*.bak
-*~
