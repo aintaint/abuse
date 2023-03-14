@@ -1,3 +1,6 @@
 [submodule "libtinytar"]
 	path = libtinytar
 	url = https://github.com/aintaint/libtinytar
+[submodule "ablisp"]
+	path = ablisp
+	url = https://github.com/aintaint/ablisp
